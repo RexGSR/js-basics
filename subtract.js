@@ -1,3 +1,4 @@
+
 let UserInputone = document.getElementById('UserInputOne');
 let UserinputTwo = document.getElementById('UserInputTwo');
 let button = document.getElementById('btn');
@@ -23,3 +24,30 @@ const handleClick = function () {
 
 //element.addEventListener('EVENT_NAME', CALLBACK_FUNCTION);
 button.addEventListener('click', handleClick);
+
+const myArr = [[1,2],[3,4],[5,6]];
+
+// console.log(myArr.flat())
+
+// console.log('5' == 5);
+
+let x = 5;
+let y = 6;
+
+// console.log(5 === 6 ? "hello" : 'bye');
+
+// if(5 === 6) {
+//     console.log("hello");
+// } 
+// if (7===8) {
+//     console.log("hello 2");
+// }
+// if (7===7) {
+//     console.log("hello 3");
+// } 
+let name = {
+    age: 678
+};
+// name ?? console.log('condition is true')
+let somthing = name?.something;
+console.log();

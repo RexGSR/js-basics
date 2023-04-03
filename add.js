@@ -32,4 +32,5 @@ function add(a, b) {
     return a + b;
 }
 
-console.log(["abcd", "1234"].join("-"));
+// console.log(["abcd", "1234"].join("-"));
+
