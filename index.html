@@ -4,47 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <style>
-        .bgColor, .container {
-            height: 100vh;
-            width: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .container span, .container button {
-            margin-right: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
+    <title>Clock</title>
 </head>
-<body id="bgcolor">
-    <!-- user input -->
-    <label for="userInput">Input</label>
-    <input type="text" name="first" id="UserInputOne">
-    <input type="text" name="second" id="UserInputTwo" >
-    <button class="add" id="btn">Sub</button>
-
-    <!-- <div >
-        <span style="margin-top: 50px;">TOTAL: </span>
-        <span id="output">some text</span>
-    </div> -->
-
-    <!-- <div class="bgColor">
-        <button class="changeColorBtn"></button>
-    </div> -->
-
-    <div class="container">
-        <button class="plus">+</button>
-        <span class="counter">0</span>
-        <button class="minus">-</button>
-    </div>
-    <button id="Quotesbtn">Button</button>
+<body>
     
-
-    <!-- <script src="./index.js"></script> -->
-    <!-- <script src="./add.js"></script> -->
-    <!-- <script src="./subtract.js"></script> -->
-    <script src="./bgChange.js"></script>
+    <div class="clock">
+        <div class="hours">00</div>
+        <div class="minutes">00</div>
+        <div class="seconds">00</div>
+        <div class="format">AM</div>
+    </div>
+    <script src="./main.js"></script>
 </body>
 </html>
