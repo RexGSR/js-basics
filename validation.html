@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation</title>
+</head>
+<body>
+    <input type="text" name="input" id="validate">
+
+    <script>
+        let validate = document.querySelector('#validate');
+        validate.addEventListener('input', validateString);
+
+        function validateString(e) {
+            let number = /^[0-9]+$/;
+            let string = /^[a-zA-Z]+$/;
+
+            number.test(e.target.value) 
+                ? 
+                e.target.style.backgroundColor = 'green' : 
+                string.test(e.target.value) 
+                    ? 
+                    e.target.style.backgroundColor = 'green' : 
+                    e.target.style.backgroundColor = 'red';
+        }
+        
+    </script>
+</body>
+</html>

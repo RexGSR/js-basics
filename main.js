@@ -4,11 +4,6 @@ let  seconds = document.querySelector('.seconds');
 let  format = document.querySelector('.format');
 
 
-
-// let currentHour = new Date().getHours();
-// let currentMinutes = new Date().getMinutes();
-// let currentSeconds = new Date().getSeconds();
-
 let time = {
     '13':'01',
     '14':'02',
@@ -30,7 +25,7 @@ function showTime() {
     let currentMinutes = new Date().getMinutes();
     let currentSeconds = new Date().getSeconds();
 
-    hours.textContent = (currentHours >= 13 || currentHours == 0 ) ? time[`${currentHours.toString()}`] : '0' + currentHours;
+    hours.textContent = (currentHours >= 13 || currentHours == 0 ) ? time[`${currentHours.toString()}`] : (currentHours == 10 || currentHours == 11 || currentHours == 12) ? currentHours : '0' + currentHours;
     
     minutes.textContent = (currentMinutes < 10 ) ? '0' + currentMinutes : currentMinutes;
     seconds.textContent = (currentSeconds < 10 ) ? '0' + currentSeconds : currentSeconds;
@@ -41,4 +36,3 @@ function showTime() {
 setInterval(showTime, 1000);
 
 // window.location.reload(); //rejected
-//
