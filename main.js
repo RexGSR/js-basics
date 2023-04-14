@@ -35,4 +35,95 @@ function showTime() {
 
 setInterval(showTime, 1000);
 
-// window.location.reload(); //rejected
+
+// let plus = document.getElementById('plus')
+// let minus = document.getElementById('minus')
+// let counterdisplay = document.getElementById('counter')
+// let AlarmBtn = document.getElementById('setAlarm')
+// AlarmBtn.addEventListener('click',setAlarm)
+
+
+// plus.addEventListener('click',handleplusbtn)
+// minus.addEventListener('click',handlminusbtn)
+
+
+// function handleplusbtn()
+// {
+//     if(Number(counterdisplay.innerText)===10){
+//         alert('Number can not be show if its bigger than 10')
+//         return
+//     }
+//     count
+// function setAlarm(e){
+//      e.PreventDefault();
+//      let today = new Date();
+//      let hours = today.getHours();
+//      let minutes = today.getMinutes();
+//      let seconds = today.getSeconds();
+//      time = today.toLocaleTimeString();
+//      counter.textcontent.
+
+// }
+
+
+let selectedHour = document.querySelector('#hourSelect');
+let partSelected = document.querySelector('#dayPart');
+let selectBtn = document.querySelector('#select');
+
+selectBtn.addEventListener('click', setAlarm);
+
+function setAlarm() {
+    //get hour
+    let hour = selectedHour.value;
+    
+    //get part
+    let part = partSelected.value;
+    
+
+    let currentHour = new Date().getHours();
+
+    if(part == 'AM') {
+        // get current hour difference
+        let differenece = hour - currentHour;
+        console.log("differenece", differenece);
+
+        if ((differenece >= 0) && (differenece <= (24 - currentHour)) ) {
+            //for today and current hour
+            // alarm for today
+            console.log("alarm for today");
+        } else {
+            // alarm for tommorow
+            console.log("alarm for tommorow");
+        }
+        
+    } else {
+        let pmtime = {
+            '1':'13',
+            '2':'14',
+            '3':'15',
+            '4':'16',
+            '5':'17',
+            '6':'18',
+            '7':'19',
+            '8':'20',
+            '9':'21',
+            '10':'22',
+            '11':'23',
+            '12':'24',
+        }
+        // get current hour difference
+        let differenece = parseInt(pmtime[hour]) - currentHour;
+        console.log("differenece", differenece);
+
+        if ((differenece > 0) && (differenece <= (24 - currentHour)) ) {
+            //for today and current hour
+            // alarm for today
+            console.log("alarm for today");
+        } else {
+            // alarm for tommorow
+            console.log("alarm for tommorow");
+        }
+        debugger
+    }
+
+}
