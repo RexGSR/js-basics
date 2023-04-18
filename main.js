@@ -36,36 +36,6 @@ function showTime() {
 setInterval(showTime, 1000);
 
 
-// let plus = document.getElementById('plus')
-// let minus = document.getElementById('minus')
-// let counterdisplay = document.getElementById('counter')
-// let AlarmBtn = document.getElementById('setAlarm')
-// AlarmBtn.addEventListener('click',setAlarm)
-
-
-// plus.addEventListener('click',handleplusbtn)
-// minus.addEventListener('click',handlminusbtn)
-
-
-// function handleplusbtn()
-// {
-//     if(Number(counterdisplay.innerText)===10){
-//         alert('Number can not be show if its bigger than 10')
-//         return
-//     }
-//     count
-// function setAlarm(e){
-//      e.PreventDefault();
-//      let today = new Date();
-//      let hours = today.getHours();
-//      let minutes = today.getMinutes();
-//      let seconds = today.getSeconds();
-//      time = today.toLocaleTimeString();
-//      counter.textcontent.
-
-// }
-
-
 let selectedHour = document.querySelector('#hourSelect');
 let partSelected = document.querySelector('#dayPart');
 let selectBtn = document.querySelector('#select');
@@ -87,7 +57,7 @@ function setAlarm() {
         let differenece = hour - currentHour;
         console.log("differenece", differenece);
 
-        if ((differenece >= 0) && (differenece <= (24 - currentHour)) ) {
+        if ((differenece >= 0) && (differenece <= (24 - currentHour))) {
             //for today and current hour
             // alarm for today
             console.log("alarm for today");
@@ -113,9 +83,10 @@ function setAlarm() {
         }
         // get current hour difference
         let differenece = parseInt(pmtime[hour]) - currentHour;
+        
         console.log("differenece", differenece);
 
-        if ((differenece > 0) && (differenece <= (24 - currentHour)) ) {
+        if ((differenece >= 0) && (differenece <= (24 - currentHour)) ) {
             //for today and current hour
             // alarm for today
             console.log("alarm for today");
@@ -123,7 +94,17 @@ function setAlarm() {
             // alarm for tommorow
             console.log("alarm for tommorow");
         }
-        debugger
     }
 
 }
+
+let myArray = [ 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten' ];
+
+let newArray = [];
+
+
+// do {
+//     let randomIndex = 
+// } while(newArray.length !== myArray.length)
+
+

@@ -21,3 +21,16 @@ body {
     font-size: 2rem;
     border-radius: 1rem;
 }
+
+.factorialValue {
+    height: 80px;
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 1rem;
+    background: whitesmoke;
+    
+
+}
