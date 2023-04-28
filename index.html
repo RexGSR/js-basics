@@ -5,45 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Clock</title>
+    <title>Todo</title>
+   
 </head>
-<body>
+<body style="position: relative;">
     
-    <!-- <div class="clock">
-        <div class="hours">00</div>
-        <div class="minutes">00</div>
-        <div class="seconds">00</div>
-        <div class="format">AM</div>
-    </div> -->
+    <div class="" style="display:flex;justify-content: center;">
+        <input type="text" id="user_input">
+        <button id="todo_action_add">Add</button>
+    </div>
 
+    <div class="list" style="margin-top: 2rem;padding: 1rem; background-color: burlywood;height:400px;width:600px;overflow-x: hidden; overflow-y: auto;">
+        <h3>No Todos yet !</h3>
+    </div>
 
-    <!-- <select name="hour" id="hourSelect">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="11">12</option>
-    </select> -->
-    <!-- <select name="hour" id="dayPart">
-        <option value="AM">AM</option>
-        <option value="PM">PM</option>
-    </select>
-    <button id="select">Set Alarm</button> -->
+    <div class="modal">
+        <span class="close_model">x</span>
 
-    <input id="factorial"/>
-    <button id="factorialBT">Get Factorial</button>
+        <input id="edit_value" />
+        <button id="save" style="margin-top: 1rem;">Save</button>
+    </div>
 
-    <div class="factorialValue"></div> 
-
-    
-    <!-- <script src="./main.js"></script> -->
-    <script src="./factorial.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>

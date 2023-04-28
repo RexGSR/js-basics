@@ -1,110 +1,109 @@
-let  hours = document.querySelector('.hours');
-let  minutes = document.querySelector('.minutes');
-let  seconds = document.querySelector('.seconds');
-let  format = document.querySelector('.format');
+let user_input_el = document.querySelector('#user_input');
+let todo_add_btn = document.querySelector('#todo_action_add');
+let list_container = document.querySelector('.list');
 
+let modal = document.querySelector('.modal');
+let close_model_btn = document.querySelector('.close_model');
+let edit_value = document.querySelector('#edit_value');
+let save_btn = document.querySelector('#save');
 
-let time = {
-    '13':'01',
-    '14':'02',
-    '15':'03',
-    '16':'04',
-    '17':'05',
-    '18':'06',
-    '19':'07',
-    '20':'08',
-    '21':'09',
-    '22':'10',
-    '23':'11',
-    '0':'12',
+let todos = [];
+let model_open = false;
+let edit_data = {};
+
+let show_todo = (todos) => {
+    let html = '';
+    todos.map((element, index) => {
+        html += `<div class="" style="display:flex;justify-content: space-between;align-items:center;column-gap: 10px; padding: 8px; border: 1px dotted; margin-top:.8rem;">
+            <span style="font-weight: bold;" id="todo_text">${index}: ${element.text}</span>
+            <div>
+                <button data-action="edit" data-id="${element.id}">edit</button>
+                <button data-action="delete" data-id="${element.id}" style="color:${ element.deleted ? 'yellow' : 'red' }" >${ element.deleted ? 'Deleted' : 'Delete' }</button>
+            </div>
+        </div>`;
+    });
+
+    list_container.innerHTML = html;
 }
 
-
-function showTime() {
-    let currentHours = new Date().getHours();
-    let currentMinutes = new Date().getMinutes();
-    let currentSeconds = new Date().getSeconds();
-
-    hours.textContent = (currentHours >= 13 || currentHours == 0 ) ? time[`${currentHours.toString()}`] : (currentHours == 10 || currentHours == 11 || currentHours == 12) ? currentHours : '0' + currentHours;
+let add_todo = () => {
     
-    minutes.textContent = (currentMinutes < 10 ) ? '0' + currentMinutes : currentMinutes;
-    seconds.textContent = (currentSeconds < 10 ) ? '0' + currentSeconds : currentSeconds;
-    
-    format.textContent = (currentHours >= 12) ? 'PM' : 'AM'
-}
+    //get the value from user input
+    let user_input = user_input_el.value;
 
-setInterval(showTime, 1000);
-
-
-let selectedHour = document.querySelector('#hourSelect');
-let partSelected = document.querySelector('#dayPart');
-let selectBtn = document.querySelector('#select');
-
-selectBtn.addEventListener('click', setAlarm);
-
-function setAlarm() {
-    //get hour
-    let hour = selectedHour.value;
-    
-    //get part
-    let part = partSelected.value;
-    
-
-    let currentHour = new Date().getHours();
-
-    if(part == 'AM') {
-        // get current hour difference
-        let differenece = hour - currentHour;
-        console.log("differenece", differenece);
-
-        if ((differenece >= 0) && (differenece <= (24 - currentHour))) {
-            //for today and current hour
-            // alarm for today
-            console.log("alarm for today");
-        } else {
-            // alarm for tommorow
-            console.log("alarm for tommorow");
-        }
-        
-    } else {
-        let pmtime = {
-            '1':'13',
-            '2':'14',
-            '3':'15',
-            '4':'16',
-            '5':'17',
-            '6':'18',
-            '7':'19',
-            '8':'20',
-            '9':'21',
-            '10':'22',
-            '11':'23',
-            '12':'24',
-        }
-        // get current hour difference
-        let differenece = parseInt(pmtime[hour]) - currentHour;
-        
-        console.log("differenece", differenece);
-
-        if ((differenece >= 0) && (differenece <= (24 - currentHour)) ) {
-            //for today and current hour
-            // alarm for today
-            console.log("alarm for today");
-        } else {
-            // alarm for tommorow
-            console.log("alarm for tommorow");
-        }
+    //store the input value
+    let todo = {
+        id: Math.round((Math.random()) * 100000000),
+        text: user_input,
+        deleted: false
     }
 
+    todos.push(todo);
+
+    console.log('todos : ', todos);
+    show_todo(todos);
+
+}
+let close_modal = () => {
+    model_open = false;
+    modal.classList.remove('show');
+}
+todo_add_btn.addEventListener('click', add_todo);
+
+let edit_todo = (todo_id) => {
+    if(!todo_id) {
+        alert('please select a todo to edit');
+        return;
+    }
+
+    let todo_to_edit = todos.filter((todo) => {
+        if(todo.id === parseInt(todo_id))
+            return todo;
+    })
+
+    edit_data = {...todo_to_edit[0]};
+
+    if(!model_open) {
+        model_open = true;
+        modal.classList.add('show');
+    }
+    edit_value.value = todo_to_edit[0].text;
 }
 
-let myArray = [ 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten' ];
+let decide_action = (event) => {
+    event.stopPropagation();
 
-let newArray = [];
+    //find element
+    let todo_id = event.target.getAttribute('data-id');
+    let action = event.target.getAttribute('data-action');
+
+    if(!todo_id || !action) return;
+
+    if(action === 'edit') {
+        edit_todo(todo_id);
+    }
 
 
-// do {
-//     let randomIndex = 
-// } while(newArray.length !== myArray.length)
+    //
+    // todos.filter()
+}
 
+list_container.addEventListener('click', decide_action);
+
+let save_edited_value = () => {
+    alert(edit_value.value);
+    console.log(edit_data);
+    todos.map((todo) => {
+        if(todo.id === edit_data.id) {
+            todo.text = edit_value.value;
+        }
+    });
+
+    show_todo(todos);
+    close_modal();
+
+}
+
+save_btn.addEventListener('click', save_edited_value);
+close_model_btn.addEventListener('click', close_modal);
 
