@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.347);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal {
+    width: 420px;
+    height: 150px;
+    display: none;
+}
+.show {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 90;
+    background: rgb(216, 198, 255);
+    padding: 4rem;
+    border-radius: 6px;
+}
+
+.close_model {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 8px;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.user_input {
+    display:flex;
+    justify-content: center;
+    min-width:400px;
+}
+.user_input > input {
+    width: 80%;
+    padding: 8px 8px;
+    border-radius: 8px 0 0 8px;
+    border: none;
+    outline: transparent;
+}
+.user_input > button {
+    width: 20%;
+    border-radius: 0 8px 8px 0;
+    border: none;
+    outline: transparent;
+    cursor: pointer;
+}
+.list_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px; 
+    padding: 8px;  
+    margin-top: .8rem;
+    border-radius: 4px;
+    background:rgba(0, 0, 0, 0.347);
+    color: white;
+}
+.action_container {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.action_container > button {
+    padding: 2px 8px;
+    cursor: pointer;
+    margin-right: 4px;
+}
