@@ -11,7 +11,7 @@ function getLocation() {
 function setPosition(geoData) {
     getWeatherData({ lat: geoData.coords.latitude, lng: geoData.coords.longitude });
 }
-const API_KEY = '';
+const API_KEY = '2d5c6e6a6615e5a301a05071950bf2fb';
 const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather'
 
 // const getWeatherData = (locationData) => {
