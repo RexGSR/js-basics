@@ -9,6 +9,9 @@ container.addEventListener('click', (e) => {
 })
 
 
+
+
+
 let playerOne = true;
 
 boxes.map(box => {
